@@ -1134,6 +1134,35 @@ footer{
 
 }
 
+
+/* ================= PREMIUM ENHANCEMENTS ================= */
+.brand-visual{max-width:1250px;margin:-25px auto 0;padding:0 24px;}
+.brand-visual img{width:100%;max-height:260px;object-fit:cover;border-radius:22px;border:1px solid rgba(216,173,85,.2);box-shadow:0 25px 80px rgba(0,0,0,.45);display:block;}
+.brand-logo-img{width:72px!important;height:72px;object-fit:contain!important;border-radius:18px!important;margin-bottom:18px;}
+.gold{color:var(--gold);}
+.market-live{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.market-stat{padding:12px;border:1px solid rgba(216,173,85,.15);background:rgba(216,173,85,.04);border-radius:10px;}
+.market-stat span{display:block;color:#69758a;font-size:9px;text-transform:uppercase;letter-spacing:1px;}
+.market-stat strong{display:block;margin-top:3px;font-size:13px;}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px rgba(62,229,141,.7);margin-right:5px;}
+.premium-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.premium-card{background:linear-gradient(145deg,#0b111d,#050810);border:1px solid rgba(216,173,85,.14);border-radius:18px;padding:25px;transition:.3s;}
+.premium-card:hover{transform:translateY(-5px);border-color:rgba(216,173,85,.35);}
+.premium-card .premium-icon{font-size:28px;margin-bottom:12px;}
+.premium-card h3{margin-bottom:8px;}
+.premium-card p{color:#858fa3;font-size:13px;margin-bottom:16px;}
+.secret-box{max-width:850px;margin:auto;text-align:center;background:linear-gradient(145deg,#0c111e,#050810);border:1px solid rgba(216,173,85,.22);border-radius:20px;padding:34px;}
+.secret-content{display:none;margin-top:22px;text-align:left;color:#b8c0ce;background:rgba(255,255,255,.03);padding:20px;border-radius:12px;}
+.contact-form{margin-top:20px;display:grid;gap:10px;}
+.contact-form input,.contact-form textarea{width:100%;background:#03060c;color:white;border:1px solid var(--line);border-radius:10px;padding:13px;outline:none;}
+.contact-form textarea{min-height:120px;resize:vertical;}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--blue);}
+.contact-only{grid-template-columns:repeat(4,1fr)!important;}
+.contact-only .contact-item{min-height:95px;}
+.admin-security{margin-top:12px;padding:10px 12px;border-radius:9px;background:rgba(255,177,52,.05);border:1px solid rgba(255,177,52,.15);color:#aeb7c9;font-size:10px;}
+@media(max-width:950px){.premium-grid{grid-template-columns:1fr 1fr;}.contact-only{grid-template-columns:1fr 1fr!important;}.market-live{grid-template-columns:1fr 1fr 1fr;}}
+@media(max-width:600px){.brand-visual{padding:0 16px;}.brand-visual img{max-height:180px;}.premium-grid{grid-template-columns:1fr;}.contact-only{grid-template-columns:1fr!important;}.market-live{grid-template-columns:1fr;}.contact-only .contact-item{min-height:78px;}}
+
 </style>
 
 </head>
@@ -1178,6 +1207,8 @@ footer{
 <section class="hero" id="accueil">
 
 <div>
+
+<img class="brand-logo-img" src="logo.png" alt="LOLODJY OFC" onerror="this.style.display='none'">
 
 <span class="badge">
 𝐿𝑂𝐿𝑂𝐷𝐽𝑌 𝐴𝐶𝐴𝐷𝐸𝑀𝑌 🦅
@@ -1283,10 +1314,17 @@ stroke-linejoin="round"/>
 
 </div>
 
+<div class="market-live" id="liveMarketStats">
+<div class="market-stat"><span>BTC / USD</span><strong id="btcPrice">Chargement…</strong></div>
+<div class="market-stat"><span>Variation 24H</span><strong id="btcChange">—</strong></div>
+<div class="market-stat"><span>Statut</span><strong><span class="live-dot"></span>Live</strong></div>
+</div>
+
 </div>
 
 </section>
 
+<div class="brand-visual"><img src="banner.png" alt="LOLODJY OFC" onerror="this.style.display='none'"></div>
 
 <!-- ================= SIGNALS ================= -->
 
@@ -1732,6 +1770,23 @@ stroke-linejoin="round"/>
 </section>
 
 
+<!-- ================= PREMIUM FEATURES ================= -->
+<section id="ressources">
+<div class="container">
+<div class="section-title"><small>𝑬𝑺𝑷𝑨𝑪𝑬 𝑷𝑹𝑬𝑴𝑰𝑼𝑴</small><h2>𝑹𝒆𝒔𝒔𝒐𝒖𝒓𝒄𝒆𝒔 & 𝑶𝒖𝒕𝒊𝒍𝒔</h2><p>Des espaces supplémentaires pour structurer ton apprentissage et ton suivi.</p></div>
+<div class="premium-grid">
+<div class="premium-card"><div class="premium-icon">⚖️</div><h3>𝑻𝒆𝒓𝒎𝒆𝒔 & 𝑹𝒊𝒔𝒒𝒖𝒆𝒔</h3><p>Retrouve les règles essentielles, les avertissements et les principes de gestion du risque.</p><a href="#risques" class="btn btn-secondary">𝑽𝑶𝑰𝑹 𝑳𝑬𝑺 𝑹𝑰𝑺𝑸𝑼𝑬𝑺</a></div>
+<div class="premium-card"><div class="premium-icon">🧠</div><h3>𝑸𝒖𝒊𝒛 𝑻𝒓𝒂𝒅𝒊𝒏𝒈</h3><p>Teste tes connaissances et suis ton score pour renforcer les bases.</p><a href="#quiz" class="btn btn-secondary">𝑳𝑨𝑵𝑪𝑬𝑹 𝑳𝑬 𝑸𝑼𝑰𝒁</a></div>
+<div class="premium-card"><div class="premium-icon">📈</div><h3>𝑾𝒐𝒐𝑱𝒂𝒚 𝑴𝑻𝑺</h3><p>Espace dédié à ton contenu WooJay MTS, prêt à être enrichi depuis l'administration.</p><button class="btn btn-secondary" onclick="openDynamicPage('woojay')">𝑶𝑼𝑽𝑹𝑰𝑹 𝑾𝑶𝑶𝑱𝑨𝒀 𝑴𝑻𝑺</button></div>
+<div class="premium-card"><div class="premium-icon">🔒</div><h3>𝑷𝒂𝒈𝒆 𝑺𝒆𝒄𝒓𝒆̀𝒕𝒆</h3><p>Une zone privée simple pour publier du contenu réservé aux visiteurs disposant du code.</p><button class="btn btn-secondary" onclick="unlockSecret()">𝑨𝑪𝑪𝑬́𝑫𝑬𝑹</button></div>
+</div>
+</div>
+</section>
+
+<section id="secretPage">
+<div class="container"><div class="secret-box"><div class="premium-icon">🔐</div><h2>𝑬𝒔𝒑𝒂𝒄𝒆 𝒑𝒓𝒊𝒗𝒆́</h2><p style="color:#858fa3;margin:10px 0 18px;">Entre le code d'accès pour afficher cette zone.</p><button class="btn btn-primary" onclick="unlockSecret()">𝑫𝑬́𝑽𝑬𝑹𝑹𝑶𝑼𝑰𝑳𝑳𝑬𝑹</button><div class="secret-content" id="secretContent"><strong class="gold">Contenu privé LOLODJY</strong><p style="margin-top:8px;">Cette zone peut servir à publier des notes, ressources, liens ou annonces privées.</p></div></div></div>
+</section>
+
 <!-- ================= COMMUNITY ================= -->
 
 <section id="communaute">
@@ -1891,111 +1946,13 @@ class="btn btn-primary">
 
 <div class="contact-box">
 
-<div class="contact-list">
-
-
-<a
-class="contact-item"
-href="https://wa.me/50932539509"
-target="_blank"
-rel="noopener">
-
-<div class="contact-icon">◉</div>
-
-<div>
-
-<small>𝑾𝑯𝑨𝑻𝑺𝑨𝑷𝑷</small>
-
-<strong>
-+𝟓𝟎𝟗 𝟑𝟐𝟓𝟑 𝟗𝟓𝟎𝟗
-</strong>
-
+<div class="contact-list contact-only">
+<a class="contact-item" href="https://wa.me/50932539509" target="_blank" rel="noopener"><div class="contact-icon">◉</div><div><small>𝑾𝑯𝑨𝑻𝑺𝑨𝑷𝑷</small><strong>𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑</strong></div></a>
+<a class="contact-item" href="https://www.instagram.com/zani_a07/" target="_blank" rel="noopener"><div class="contact-icon">◎</div><div><small>𝑰𝑵𝑺𝑻𝑨𝑮𝑹𝑨𝑴</small><strong>𝑰𝒏𝒔𝒕𝒂𝒈𝒓𝒂𝒎</strong></div></a>
+<a class="contact-item" href="https://www.tiktok.com/@pentate7" target="_blank" rel="noopener"><div class="contact-icon">♪</div><div><small>𝑻𝑰𝑲𝑻𝑶𝑲</small><strong>𝑻𝒊𝒌𝑻𝒐𝒌</strong></div></a>
+<a class="contact-item" href="mailto:lubinlowens59@gmail.com"><div class="contact-icon">✉</div><div><small>𝑬𝑴𝑨𝑰𝑳</small><strong>𝑬𝒎𝒂𝒊𝒍</strong></div></a>
 </div>
-
-</a>
-
-
-<a
-class="contact-item"
-href="tel:+50932539509">
-
-<div class="contact-icon">☎</div>
-
-<div>
-
-<small>𝑻𝑬́𝑳𝑬́𝑷𝑯𝑶𝑵𝑬</small>
-
-<strong>
-+𝟓𝟎𝟗 𝟑𝟐𝟓𝟑 𝟗𝟓𝟎𝟗
-</strong>
-
-</div>
-
-</a>
-
-
-<a
-class="contact-item"
-href="mailto:lubinlowens59@gmail.com">
-
-<div class="contact-icon">✉</div>
-
-<div>
-
-<small>𝑬𝑴𝑨𝑰𝑳</small>
-
-<strong>
-lubinlowens59@gmail.com
-</strong>
-
-</div>
-
-</a>
-
-
-<a
-class="contact-item"
-href="https://www.instagram.com/zani_a07/"
-target="_blank"
-rel="noopener">
-
-<div class="contact-icon">◎</div>
-
-<div>
-
-<small>𝑰𝑵𝑺𝑻𝑨𝑮𝑹𝑨𝑴</small>
-
-<strong>
-@zani_a07
-</strong>
-
-</div>
-
-</a>
-
-
-<a
-class="contact-item"
-href="https://www.tiktok.com/@pentate7"
-target="_blank"
-rel="noopener">
-
-<div class="contact-icon">♪</div>
-
-<div>
-
-<small>𝑻𝑰𝑲𝑻𝑶𝑲</small>
-
-<strong>
-@pentate7
-</strong>
-
-</div>
-
-</a>
-
-
-</div>
+<form class="contact-form" onsubmit="sendContactForm(event)"><input id="contactName" required placeholder="Ton nom"><input id="contactSubject" required placeholder="Sujet"><textarea id="contactMessage" required placeholder="Ton message"></textarea><button class="btn btn-primary" type="submit">✉ 𝑬𝑵𝑽𝑶𝒀𝑬𝑹 𝑷𝑨𝑹 𝑬𝑴𝑨𝑰𝑳</button></form></div>
 
 </div>
 
@@ -2386,6 +2343,8 @@ onclick="closeAdmin()">
 
 </div>
 
+
+<div class="admin-security">🔐 Le mot de passe n’est plus écrit en clair dans le HTML. Cette protection reste côté navigateur : pour une vraie sécurité, utilise une authentification serveur.</div>
 
 <p class="admin-note">
 
@@ -2826,6 +2785,30 @@ function renderNavigation(){
 
     });
 
+    [
+        ["#ressources","𝑹𝑬𝑺𝑺𝑶𝑼𝑹𝑪𝑬𝑺"],
+        ["#contact","𝑪𝑶𝑵𝑻𝑨𝑪𝑻"]
+    ].forEach(function(item){
+        const li=document.createElement("li");
+        const a=document.createElement("a");
+        a.href=item[0];
+        a.textContent=item[1];
+        a.onclick=function(){closeMobileMenu();};
+        li.appendChild(a);
+        nav.appendChild(li);
+    });
+
+    [
+        ["#risques","𝑹𝒊𝒔𝒒𝒖𝒆𝒔"],
+        ["#quiz","𝑸𝒖𝒊𝒛"],
+        ["#ressources","𝑹𝒆𝒔𝒔𝒐𝒖𝒓𝒄𝒆𝒔"],
+        ["#contact","𝑪𝒐𝒏𝒕𝒂𝒄𝒕"]
+    ].forEach(function(item){
+        const a=document.createElement("a");
+        a.href=item[0];
+        a.textContent=item[1];
+        footer.appendChild(a);
+    });
 
     const contact =
     pages.find(function(page){
@@ -3066,27 +3049,16 @@ function closeAdminOutside(event){
    ADMIN LOGIN
 ========================================================= */
 
-function loginAdmin(){
+async function loginAdmin(){
 
-    const password =
-    document
-    .getElementById("adminPassword")
-    .value;
+    const password=document.getElementById("adminPassword").value;
+    const data=new TextEncoder().encode(password);
+    const digest=await crypto.subtle.digest("SHA-256",data);
+    const hash=Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,"0")).join("");
 
-
-    /*
-       MOT DE PASSE DE DÉMONSTRATION.
-
-       À remplacer par une vraie authentification
-       côté serveur avant la mise en ligne réelle.
-    */
-
-    if(password !== "LOLODJY2026"){
-
+    if(hash!==ADMIN_HASH){
         alert("❌ Mot de passe incorrect.");
-
         return;
-
     }
 
 
@@ -3780,6 +3752,127 @@ function loadSiteData(){
 loadSiteData();
 
 renderNavigation();
+
+
+/* =========================================================
+   PREMIUM FEATURES
+========================================================= */
+async function loadLiveMarket(){
+    const priceEl=document.getElementById('btcPrice');
+    const changeEl=document.getElementById('btcChange');
+    if(!priceEl)return;
+    try{
+        const r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true',{cache:'no-store'});
+        if(!r.ok)throw new Error('market');
+        const d=await r.json();
+        priceEl.textContent='$'+Number(d.bitcoin.usd).toLocaleString('en-US',{maximumFractionDigits:0});
+        const ch=Number(d.bitcoin.usd_24h_change);
+        changeEl.textContent=(ch>=0?'+':'')+ch.toFixed(2)+'%';
+        changeEl.className=ch>=0?'gold':'';
+    }catch(e){priceEl.textContent='Indisponible';changeEl.textContent='—';}
+}
+loadLiveMarket();
+setInterval(loadLiveMarket,60000);
+
+function sendContactForm(event){
+    event.preventDefault();
+    const name=document.getElementById('contactName').value.trim();
+    const subject=document.getElementById('contactSubject').value.trim();
+    const message=document.getElementById('contactMessage').value.trim();
+    const body=encodeURIComponent('Nom: '+name+'\n\n'+message);
+    window.location.href='mailto:lubinlowens59@gmail.com?subject='+encodeURIComponent(subject)+'&body='+body;
+}
+
+async function unlockSecret(){
+    const code=prompt('Code d’accès :');
+    if(code===null)return;
+    const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(code));
+    const hash=Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    if(hash==='94ddfa7cb19ff3365e2db1e7911a68cae6341c262a65e53b6b3a706587bfdc90'){
+        document.getElementById('secretContent').style.display='block';
+        document.getElementById('secretPage').scrollIntoView({behavior:'smooth'});
+    }else{alert('❌ Code incorrect.');}
+}
+
+function openDynamicPage(id){
+    const pagesById={
+        woojay:{icon:'📈',title:'WooJay MTS',description:'Espace WooJay MTS',content:'Zone dédiée à WooJay MTS. Utilise l’administration pour remplacer ce contenu par tes ressources, notes et liens.'}
+    };
+    const p=pagesById[id];
+    if(!p)return;
+    document.getElementById('homeContent').style.display='none';
+    document.getElementById('dynamicPage').style.display='block';
+    document.getElementById('dynamicPageIcon').textContent=p.icon;
+    document.getElementById('dynamicPageTitle').textContent=p.title;
+    document.getElementById('dynamicPageDescription').textContent=p.description;
+    document.getElementById('dynamicPageContent').textContent=p.content;
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Petite protection côté client : elle masque le mot de passe en clair du code source.
+// Pour une vraie sécurité multi-appareils, l’authentification doit rester côté serveur.
+const ADMIN_HASH='cc62dc7b57e41b2ba047dced31ffef94aab03420a6e9ca7cf811b1babacbce72';
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>𝐿𝑂𝐿𝑂𝐷𝐽𝑌 OFC</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+body {
+    overflow: hidden;
+}
+
+.lolodjy-page {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #000;
+}
+
+.lolodjy-page img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="lolodjy-page">
+
+    <img
+        src="images/lolodjy-ofc.png"
+        alt="𝐿𝑂𝐿𝑂𝐷𝐽𝑌 OFC"
+    >
+
+</div>
 
 </script>
 
