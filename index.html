@@ -1,1 +1,3789 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="𝐿𝑂𝐿𝑂𝐷𝐽𝑌 𝐴𝐶𝐴𝐷𝐸𝑀𝑌 — Plateforme éducative dédiée au trading, aux marchés, à la discipline et à la gestion du risque.">
+
+<title>𝐿𝑂𝐿𝑂𝐷𝐽𝑌 𝐴𝐶𝐴𝐷𝐸𝑀𝑌 🦅</title>
+
+
+<style>
+
+/* ================= GLOBAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#020308;
+    --bg2:#050812;
+    --card:#080c16;
+    --card2:#0b101c;
+    --blue:#347dff;
+    --blue2:#6ca2ff;
+    --white:#ffffff;
+    --muted:#8d98ad;
+    --line:rgba(255,255,255,.08);
+    --green:#3ee58d;
+    --gold:#d8ad55;
+    --red:#ff6262;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(52,125,255,.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 40%,
+            rgba(52,125,255,.07),
+            transparent 25%
+        ),
+        #020308;
+    color:white;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+button:disabled{
+    cursor:not-allowed;
+}
+
+::-webkit-scrollbar{
+    width:7px;
+}
+
+::-webkit-scrollbar-track{
+    background:#020308;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#1c55b9;
+    border-radius:20px;
+}
+
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    background:rgba(2,3,8,.82);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav-container{
+    max-width:1250px;
+    height:76px;
+    margin:auto;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:var(--blue2);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#aeb7c9;
+    font-size:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.nav-btn{
+    background:linear-gradient(135deg,#286fff,#1455d9);
+    padding:11px 17px;
+    border-radius:9px;
+    color:white!important;
+    box-shadow:0 8px 30px rgba(52,125,255,.25);
+}
+
+.menu{
+    display:none;
+    font-size:27px;
+    cursor:pointer;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    max-width:1250px;
+    min-height:100vh;
+    margin:auto;
+    padding:150px 24px 90px;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 13px;
+    border:1px solid rgba(52,125,255,.4);
+    background:rgba(52,125,255,.08);
+    color:#6ca2ff;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(44px,6vw,76px);
+    line-height:1.02;
+    margin-bottom:25px;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    display:block;
+    color:#4388ff;
+}
+
+.hero p{
+    max-width:600px;
+    color:#929db1;
+    font-size:17px;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 21px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    font-weight:800;
+    font-size:13px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#347dff,#1655d9);
+    border-color:#347dff;
+    box-shadow:0 12px 35px rgba(52,125,255,.25);
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.035);
+}
+
+
+/* ================= MARKET CARD ================= */
+
+.market-card{
+    position:relative;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12,18,31,.98),
+            rgba(4,7,13,.98)
+        );
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:22px;
+    padding:24px;
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.55),
+        0 0 60px rgba(52,125,255,.06);
+    overflow:hidden;
+}
+
+.market-card::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:rgba(52,125,255,.08);
+    filter:blur(60px);
+    top:-100px;
+    right:-60px;
+}
+
+.market-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.market-name{
+    font-weight:800;
+}
+
+.market-status{
+    color:var(--green);
+    font-size:12px;
+    font-weight:bold;
+}
+
+.chart{
+    height:300px;
+    border-radius:13px;
+    overflow:hidden;
+    position:relative;
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.04) 1px,
+            transparent 1px
+        );
+    background-size:45px 45px;
+}
+
+.chart svg{
+    width:100%;
+    height:100%;
+}
+
+.chart-label{
+    position:absolute;
+    bottom:15px;
+    left:15px;
+    color:#69758b;
+    font-size:11px;
+}
+
+
+/* ================= GENERAL ================= */
+
+section{
+    padding:100px 24px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title small{
+    color:#4d8eff;
+    font-weight:900;
+    letter-spacing:2px;
+    font-size:11px;
+}
+
+.section-title h2{
+    font-size:40px;
+    margin-top:9px;
+}
+
+.section-title p{
+    max-width:680px;
+    margin:14px auto;
+    color:#818ca1;
+}
+
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:
+        linear-gradient(
+            145deg,
+            #0a0f19,
+            #060910
+        );
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:28px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(52,125,255,.35);
+}
+
+.card-number{
+    color:#448cff;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    font-size:20px;
+    margin-bottom:11px;
+}
+
+.card p{
+    color:#858fa3;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.card ul{
+    list-style:none;
+}
+
+.card li{
+    color:#adb6c6;
+    font-size:12px;
+    margin:8px 0;
+}
+
+.card li::before{
+    content:"✓";
+    color:#3986ff;
+    margin-right:8px;
+}
+
+
+/* ================= SIGNALS ================= */
+
+.signal-wrapper{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.signal{
+    background:
+        linear-gradient(
+            145deg,
+            #0a101c,
+            #050810
+        );
+    border:1px solid rgba(52,125,255,.15);
+    border-radius:17px;
+    padding:25px;
+    transition:.3s;
+}
+
+.signal:hover{
+    transform:translateY(-5px);
+    border-color:rgba(52,125,255,.45);
+}
+
+.signal-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.signal-tag{
+    color:#65a0ff;
+    font-size:10px;
+    font-weight:900;
+}
+
+.signal-time{
+    color:#707b8f;
+    font-size:11px;
+}
+
+.signal h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.signal p{
+    color:#818ca0;
+    font-size:12px;
+}
+
+.signal-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:18px;
+}
+
+.signal-box{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.05);
+    padding:12px;
+    border-radius:9px;
+}
+
+.signal-box span{
+    display:block;
+    color:#6f7a8f;
+    font-size:10px;
+}
+
+.signal-box strong{
+    font-size:12px;
+}
+
+.educational-note{
+    text-align:center;
+    color:#788397;
+    font-size:12px;
+    margin-top:25px;
+}
+
+
+/* ================= CHAPTERS ================= */
+
+.chapters{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.chapter{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    background:#080d17;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:21px;
+    transition:.3s;
+}
+
+.chapter:hover{
+    border-color:rgba(52,125,255,.35);
+}
+
+.chapter-num{
+    min-width:46px;
+    height:46px;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    background:rgba(52,125,255,.1);
+    color:#4b90ff;
+    font-weight:900;
+}
+
+.chapter h3{
+    font-size:15px;
+}
+
+.chapter p{
+    color:#7f899d;
+    font-size:12px;
+}
+
+
+/* ================= PSYCHO ================= */
+
+.psychology{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.mini-card{
+    background:#080d16;
+    border:1px solid var(--line);
+    padding:24px;
+    border-radius:15px;
+}
+
+.mini-card .icon{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.mini-card h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.mini-card p{
+    color:#808b9e;
+    font-size:12px;
+}
+
+
+/* ================= QUIZ ================= */
+
+.quiz-box{
+    max-width:750px;
+    margin:auto;
+    background:
+        linear-gradient(
+            145deg,
+            #0a101b,
+            #050810
+        );
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:30px;
+}
+
+.quiz-progress{
+    height:6px;
+    background:#172033;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.quiz-progress span{
+    display:block;
+    width:0%;
+    height:100%;
+    background:#347dff;
+    transition:.4s;
+}
+
+.quiz-question{
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.answers{
+    display:grid;
+    gap:10px;
+}
+
+.answer{
+    background:#080d17;
+    color:white;
+    border:1px solid var(--line);
+    padding:14px;
+    border-radius:10px;
+    text-align:left;
+    transition:.25s;
+}
+
+.answer:hover{
+    border-color:#347dff;
+    background:rgba(52,125,255,.08);
+}
+
+.answer.correct{
+    border-color:#3ee58d;
+    background:rgba(62,229,141,.08);
+}
+
+.answer.wrong{
+    border-color:#ff6262;
+    background:rgba(255,98,98,.08);
+}
+
+.quiz-result{
+    text-align:center;
+}
+
+
+/* ================= RISK ================= */
+
+.warning{
+    max-width:900px;
+    margin:auto;
+    background:rgba(255,177,52,.045);
+    border:1px solid rgba(255,177,52,.2);
+    border-radius:16px;
+    padding:28px;
+}
+
+.warning h3{
+    color:#ffbf5c;
+    margin-bottom:8px;
+}
+
+.warning p{
+    color:#9da6b5;
+    font-size:13px;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.about-logo{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.about p{
+    color:#858fa3;
+    font-size:15px;
+}
+
+
+/* ================= COMMUNITY ================= */
+
+.community{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    background:
+        linear-gradient(
+            145deg,
+            #091323,
+            #050811
+        );
+    border:1px solid rgba(52,125,255,.2);
+    border-radius:20px;
+    padding:45px 25px;
+}
+
+.community h2{
+    margin-bottom:12px;
+}
+
+.community p{
+    color:#858fa3;
+    margin-bottom:25px;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+    max-width:850px;
+    margin:auto;
+    background:
+        linear-gradient(
+            145deg,
+            #0a101b,
+            #060910
+        );
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:35px;
+}
+
+.contact-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+}
+
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px;
+    border-radius:12px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.06);
+    transition:.3s;
+}
+
+.contact-item:hover{
+    transform:translateY(-3px);
+    border-color:rgba(52,125,255,.4);
+}
+
+.contact-icon{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:10px;
+    background:rgba(52,125,255,.1);
+    font-size:19px;
+}
+
+.contact-item small{
+    display:block;
+    color:#69758a;
+    font-size:9px;
+    font-weight:bold;
+}
+
+.contact-item strong{
+    font-size:12px;
+}
+
+
+/* ================= DYNAMIC PAGE ================= */
+
+.dynamic-page{
+    max-width:950px;
+    margin:auto;
+}
+
+.dynamic-page-box{
+    background:
+        linear-gradient(
+            145deg,
+            #0a101b,
+            #050810
+        );
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:35px;
+}
+
+.dynamic-page-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.dynamic-page h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.dynamic-page-description{
+    color:#858fa3;
+    margin-bottom:30px;
+    font-size:15px;
+}
+
+.dynamic-page-content{
+    color:#b8c0ce;
+    font-size:14px;
+    white-space:pre-wrap;
+    line-height:1.9;
+}
+
+
+/* ================= ADMIN BUTTON ================= */
+
+.admin-button{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:2000;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid rgba(52,125,255,.35);
+    background:#080d17;
+    color:#6ca2ff;
+    font-size:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+
+
+/* ================= ADMIN PANEL ================= */
+
+.admin-panel{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(8px);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.admin-panel.active{
+    display:flex;
+}
+
+.admin{
+    width:min(700px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#080d17;
+    border:1px solid rgba(52,125,255,.25);
+    border-radius:20px;
+    padding:28px;
+}
+
+.admin h2{
+    margin-bottom:8px;
+}
+
+.admin h3{
+    margin-bottom:8px;
+}
+
+.admin-sub{
+    color:#7f899d;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+.admin label{
+    display:block;
+    color:#aeb7c9;
+    font-size:12px;
+    margin:12px 0 6px;
+}
+
+.admin input,
+.admin textarea{
+    width:100%;
+    background:#03060c;
+    color:white;
+    border:1px solid var(--line);
+    border-radius:9px;
+    padding:12px;
+    outline:none;
+}
+
+.admin textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.admin input:focus,
+.admin textarea:focus{
+    border-color:#347dff;
+}
+
+.admin-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:22px;
+    flex-wrap:wrap;
+}
+
+.admin-note{
+    color:#69758a;
+    font-size:10px;
+    margin-top:15px;
+}
+
+
+/* ================= PAGE MANAGEMENT ================= */
+
+.page-admin-card{
+    background:
+        linear-gradient(
+            145deg,
+            #0a101b,
+            #050810
+        );
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:14px;
+    padding:18px;
+    margin-top:12px;
+}
+
+.page-admin-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.page-admin-name{
+    font-weight:800;
+    font-size:15px;
+}
+
+.page-admin-url{
+    color:#657188;
+    font-size:10px;
+    margin-top:4px;
+}
+
+.page-admin-actions{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:14px;
+}
+
+.page-admin-actions button{
+    border:1px solid rgba(255,255,255,.08);
+    background:#0d1421;
+    color:white;
+    padding:8px 11px;
+    border-radius:8px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.page-admin-actions .delete-page{
+    color:#ff7777;
+}
+
+.page-admin-actions button:hover{
+    border-color:#347dff;
+}
+
+.page-empty{
+    color:#687388;
+    font-size:12px;
+    text-align:center;
+    padding:20px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:45px 24px;
+    background:#010207;
+}
+
+.footer-content{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.footer-logo{
+    font-weight:900;
+    font-size:18px;
+}
+
+.footer-logo span{
+    color:#4388ff;
+}
+
+.footer-text{
+    color:#687388;
+    font-size:11px;
+    margin-top:8px;
+}
+
+.footer-links{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    color:#788398;
+    font-size:11px;
+}
+
+.copyright{
+    max-width:1200px;
+    margin:28px auto 0;
+    color:#4f596c;
+    font-size:10px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:76px;
+        left:0;
+        right:0;
+        padding:22px;
+        background:#050812;
+        border-bottom:1px solid var(--line);
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:125px;
+    }
+
+    .signal-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .psychology{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    section{
+        padding:70px 16px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .chapters{
+        grid-template-columns:1fr;
+    }
+
+    .psychology{
+        grid-template-columns:1fr;
+    }
+
+    .contact-list{
+        grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        padding:20px;
+    }
+
+    .footer-content{
+        flex-direction:column;
+    }
+
+    .chart{
+        height:240px;
+    }
+
+    .dynamic-page-box{
+        padding:22px;
+    }
+
+    .dynamic-page h1{
+        font-size:31px;
+    }
+
+    .admin{
+        padding:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<div class="nav-container">
+
+<a href="#accueil" class="logo">
+𝐿𝑂𝐿𝑂𝐷𝐽𝑌 <span>🦅</span>
+</a>
+
+<div class="menu" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links" id="navLinks">
+
+<!-- LES PAGES SONT GÉNÉRÉES AUTOMATIQUEMENT -->
+
+</ul>
+
+</div>
+
+</nav>
+
+
+<!-- ================= MAIN ================= -->
+
+<main id="mainContent">
+
+
+<!-- ================= HOME ================= -->
+
+<div id="homeContent">
+
+
+<section class="hero" id="accueil">
+
+<div>
+
+<span class="badge">
+𝐿𝑂𝐿𝑂𝐷𝐽𝑌 𝐴𝐶𝐴𝐷𝐸𝑀𝑌 🦅
+</span>
+
+<h1>
+𝑴𝒂𝒊̂𝒕𝒓𝒊𝒔𝒆 𝒍𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔.
+<span>𝑨𝒇𝒇𝒖̂𝒕𝒆 𝒕𝒂 𝒔𝒕𝒓𝒂𝒕𝒆́𝒈𝒊𝒆.</span>
+</h1>
+
+<p id="heroDescription">
+𝑴𝒂𝒊̂𝒕𝒓𝒊𝒔𝒆 𝒍𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔.
+𝑨𝒇𝒇𝒖̂𝒕𝒆 𝒕𝒂 𝒔𝒕𝒓𝒂𝒕𝒆́𝒈𝒊𝒆.
+𝑪𝒐𝒏𝒔𝒕𝒓𝒖𝒊𝒔 𝒕𝒐𝒏 𝒂𝒗𝒆𝒏𝒊𝒓.
+</p>
+
+<div class="buttons">
+
+<a href="#signals" class="btn btn-primary">
+𝑽𝑶𝑰𝑹 𝑳𝑬𝑺 𝑺𝑰𝑮𝑵𝑨𝑼𝑿
+</a>
+
+<a href="#formation" class="btn btn-secondary">
+𝑪𝑶𝑴𝑴𝑬𝑵𝑪𝑬𝑹
+</a>
+
+</div>
+
+</div>
+
+
+<!-- MARKET GRAPH -->
+
+<div class="market-card">
+
+<div class="market-top">
+
+<div class="market-name">
+𝑳𝑶𝑳𝑶𝑫𝑱𝒀 𝑴𝑨𝑹𝑲𝑬𝑻
+</div>
+
+<div class="market-status">
+● 𝑬́𝑫𝑼𝑪𝑨𝑻𝑰𝑭
+</div>
+
+</div>
+
+<div class="chart">
+
+<svg
+viewBox="0 0 800 300"
+preserveAspectRatio="none">
+
+<defs>
+
+<linearGradient
+id="lineGradient"
+x1="0"
+y1="0"
+x2="1"
+y2="0">
+
+<stop
+offset="0%"
+stop-color="#347dff"/>
+
+<stop
+offset="100%"
+stop-color="#79aaff"/>
+
+</linearGradient>
+
+</defs>
+
+<polyline
+points="
+0,245
+60,225
+120,238
+175,195
+225,215
+280,165
+330,183
+385,132
+440,150
+500,108
+550,125
+605,82
+660,101
+720,55
+800,72"
+fill="none"
+stroke="url(#lineGradient)"
+stroke-width="5"
+stroke-linecap="round"
+stroke-linejoin="round"/>
+
+</svg>
+
+<div class="chart-label">
+𝑨𝑵𝑨𝑳𝒀𝑺𝑬 𝑫𝑼 𝑴𝑨𝑹𝑪𝑯𝑬
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SIGNALS ================= -->
+
+<section id="signals">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑺𝑰𝑮𝑵𝑨𝑳𝑺</small>
+
+<h2>𝑺𝒊𝒈𝒏𝒂𝒖𝒙 & 𝑨𝒏𝒂𝒍𝒚𝒔𝒆𝒔</h2>
+
+<p>
+𝑼𝒏 𝒆𝒔𝒑𝒂𝒄𝒆 𝒆́𝒅𝒖𝒄𝒂𝒕𝒊𝒇 𝒑𝒐𝒖𝒓
+𝒂𝒏𝒂𝒍𝒚𝒔𝒆𝒓 𝒍𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔,
+𝒄𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒍𝒆𝒔 𝒔𝒆𝒕𝒖𝒑𝒔 𝒆𝒕
+𝒂𝒎𝒆́𝒍𝒊𝒐𝒓𝒆𝒓 𝒕𝒂 𝒅𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆.
+</p>
+
+</div>
+
+
+<div class="signal-wrapper">
+
+
+<div class="signal">
+
+<div class="signal-top">
+
+<span class="signal-tag">
+𝑺𝑬𝑻𝑼𝑷 𝟎𝟏
+</span>
+
+<span class="signal-time">
+𝟏𝟓𝑴
+</span>
+
+</div>
+
+<h3>
+𝑺𝒕𝒓𝒖𝒄𝒕𝒖𝒓𝒆 𝒅𝒖 𝒎𝒂𝒓𝒄𝒉𝒆́
+</h3>
+
+<p>
+𝑬́𝒕𝒖𝒅𝒊𝒆𝒓 𝒍𝒂 𝒕𝒆𝒏𝒅𝒂𝒏𝒄𝒆
+𝒆𝒕 𝒍𝒂 𝒔𝒕𝒓𝒖𝒄𝒕𝒖𝒓𝒆.
+</p>
+
+<div class="signal-info">
+
+<div class="signal-box">
+<span>𝑻𝑬𝑵𝑫𝑨𝑵𝑪𝑬</span>
+<strong>𝑨̀ 𝑨𝑵𝑨𝑳𝒀𝑺𝑬𝑹</strong>
+</div>
+
+<div class="signal-box">
+<span>𝑻𝑰𝑴𝑬𝑭𝑹𝑨𝑴𝑬</span>
+<strong>𝟏𝟓𝑴</strong>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="signal">
+
+<div class="signal-top">
+
+<span class="signal-tag">
+𝑺𝑬𝑻𝑼𝑷 𝟎𝟐
+</span>
+
+<span class="signal-time">
+𝟓𝑴
+</span>
+
+</div>
+
+<h3>
+𝑪𝒐𝒏𝒇𝒊𝒓𝒎𝒂𝒕𝒊𝒐𝒏
+</h3>
+
+<p>
+𝑨𝒏𝒂𝒍𝒚𝒔𝒆 𝒅𝒆𝒔 𝒛𝒐𝒏𝒆𝒔
+𝒆𝒕 𝒓𝒆𝒄𝒉𝒆𝒓𝒄𝒉𝒆 𝒅𝒆
+𝒄𝒐𝒏𝒇𝒊𝒓𝒎𝒂𝒕𝒊𝒐𝒏.
+</p>
+
+<div class="signal-info">
+
+<div class="signal-box">
+<span>𝑻𝒀𝑷𝑬</span>
+<strong>𝑪𝑶𝑵𝑭𝑰𝑹𝑴𝑨𝑻𝑰𝑶𝑵</strong>
+</div>
+
+<div class="signal-box">
+<span>𝑻𝑭</span>
+<strong>𝟓𝑴</strong>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="signal">
+
+<div class="signal-top">
+
+<span class="signal-tag">
+𝑺𝑬𝑻𝑼𝑷 𝟎𝟑
+</span>
+
+<span class="signal-time">
+𝟏𝑯
+</span>
+
+</div>
+
+<h3>
+𝑺𝒖𝒑𝒑𝒐𝒓𝒕 & 𝑹𝒆́𝒔𝒊𝒔𝒕𝒂𝒏𝒄𝒆
+</h3>
+
+<p>
+𝑰𝒅𝒆𝒏𝒕𝒊𝒇𝒊𝒆𝒓 𝒍𝒆𝒔 𝒛𝒐𝒏𝒆𝒔
+𝒊𝒎𝒑𝒐𝒓𝒕𝒂𝒏𝒕𝒆𝒔.
+</p>
+
+<div class="signal-info">
+
+<div class="signal-box">
+<span>𝒁𝑶𝑵𝑬</span>
+<strong>𝑨̀ 𝑬́𝑻𝑼𝑫𝑰𝑬𝑹</strong>
+</div>
+
+<div class="signal-box">
+<span>𝑻𝑭</span>
+<strong>𝟏𝑯</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="educational-note">
+
+⚠️ 𝑳𝒆𝒔 𝒔𝒊𝒈𝒏𝒂𝒖𝒙 𝒆𝒕 𝒂𝒏𝒂𝒍𝒚𝒔𝒆𝒔 𝒔𝒐𝒏𝒕
+𝒑𝒓𝒆́𝒔𝒆𝒏𝒕𝒆́𝒔 𝒂̀ 𝒕𝒊𝒕𝒓𝒆 𝒆́𝒅𝒖𝒄𝒂𝒕𝒊𝒇.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TRADING ================= -->
+
+<section id="trading">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑻𝑹𝑨𝑫𝑰𝑵𝑮</small>
+
+<h2>
+𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒂𝒗𝒂𝒏𝒕 𝒅'𝒂𝒈𝒊𝒓
+</h2>
+
+<p>
+𝑨𝒑𝒑𝒓𝒆𝒏𝒅𝒔 𝒍𝒆𝒔 𝒃𝒂𝒔𝒆𝒔,
+𝒍𝒂 𝒍𝒆𝒄𝒕𝒖𝒓𝒆 𝒅𝒖 𝒎𝒂𝒓𝒄𝒉𝒆́,
+𝒍𝒂 𝒅𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆 𝒆𝒕
+𝒍𝒂 𝒈𝒆𝒔𝒕𝒊𝒐𝒏 𝒅𝒖 𝒓𝒊𝒔𝒒𝒖𝒆.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="card-number">
+𝟎𝟏 • 𝑩𝑨𝑺𝑬𝑺
+</div>
+
+<h3>𝑴𝒂𝒓𝒄𝒉𝒆́𝒔</h3>
+
+<p>
+𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆
+𝒍𝒆 𝒇𝒐𝒏𝒄𝒕𝒊𝒐𝒏𝒏𝒆𝒎𝒆𝒏𝒕
+𝒅𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔.
+</p>
+
+<ul>
+<li>𝑭𝒐𝒓𝒆𝒙</li>
+<li>𝑰𝒏𝒅𝒊𝒄𝒆𝒔</li>
+<li>𝑨𝒄𝒕𝒊𝒐𝒏𝒔</li>
+<li>𝑪𝒓𝒚𝒑𝒕𝒐</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">
+𝟎𝟐 • 𝑨𝑵𝑨𝑳𝒀𝑺𝑬
+</div>
+
+<h3>𝑨𝒏𝒂𝒍𝒚𝒔𝒆 𝒕𝒆𝒄𝒉𝒏𝒊𝒒𝒖𝒆</h3>
+
+<p>
+𝑨𝒑𝒑𝒓𝒆𝒏𝒅𝒓𝒆
+𝒂̀ 𝒍𝒊𝒓𝒆 𝒍𝒂 𝒔𝒕𝒓𝒖𝒄𝒕𝒖𝒓𝒆.
+</p>
+
+<ul>
+<li>𝑻𝒆𝒏𝒅𝒂𝒏𝒄𝒆𝒔</li>
+<li>𝑺𝒖𝒑𝒑𝒐𝒓𝒕𝒔</li>
+<li>𝑹𝒆́𝒔𝒊𝒔𝒕𝒂𝒏𝒄𝒆𝒔</li>
+<li>𝑺𝒆𝒕𝒖𝒑𝒔</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-number">
+𝟎𝟑 • 𝑹𝑰𝑺𝑸𝑼𝑬
+</div>
+
+<h3>𝑮𝒆𝒔𝒕𝒊𝒐𝒏 𝒅𝒖 𝒓𝒊𝒔𝒒𝒖𝒆</h3>
+
+<p>
+𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆
+𝒑𝒐𝒖𝒓𝒒𝒖𝒐𝒊
+𝒍𝒆 𝒓𝒊𝒔𝒒𝒖𝒆 𝒄𝒐𝒎𝒑𝒕𝒆.
+</p>
+
+<ul>
+<li>𝑹𝒊𝒔𝒒𝒖𝒆</li>
+<li>𝑻𝒂𝒊𝒍𝒍𝒆 𝒅𝒆 𝒑𝒐𝒔𝒊𝒕𝒊𝒐𝒏</li>
+<li>𝑷𝒍𝒂𝒏</li>
+<li>𝑫𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FORMATION ================= -->
+
+<section id="formation">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑭𝑶𝑹𝑴𝑨𝑻𝑰𝑶𝑵</small>
+
+<h2>
+𝑨𝒑𝒑𝒓𝒆𝒏𝒅𝒔 𝒆́𝒕𝒂𝒑𝒆 𝒑𝒂𝒓 𝒆́𝒕𝒂𝒑𝒆
+</h2>
+
+<p>
+𝑼𝒏 𝒑𝒂𝒓𝒄𝒐𝒖𝒓𝒔 𝒆́𝒅𝒖𝒄𝒂𝒕𝒊𝒇
+𝒑𝒐𝒖𝒓 𝒄𝒐𝒏𝒔𝒕𝒓𝒖𝒊𝒓𝒆
+𝒅𝒆 𝒔𝒐𝒍𝒊𝒅𝒆𝒔 𝒃𝒂𝒔𝒆𝒔.
+</p>
+
+</div>
+
+
+<div class="chapters">
+
+
+<div class="chapter">
+
+<div class="chapter-num">𝟎𝟏</div>
+
+<div>
+<h3>𝑳𝒆𝒔 𝒇𝒐𝒏𝒅𝒂𝒎𝒆𝒏𝒕𝒂𝒖𝒙</h3>
+
+<p>
+𝑴𝒂𝒓𝒄𝒉𝒆́𝒔,
+𝒗𝒐𝒄𝒂𝒃𝒖𝒍𝒂𝒊𝒓𝒆
+𝒆𝒕 𝒄𝒐𝒏𝒄𝒆𝒑𝒕𝒔.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="chapter">
+
+<div class="chapter-num">𝟎𝟐</div>
+
+<div>
+<h3>𝑪𝒉𝒂𝒏𝒅𝒆𝒍𝒊𝒆𝒓𝒔</h3>
+
+<p>
+𝑳𝒊𝒓𝒆 𝒍𝒆𝒔
+𝒎𝒐𝒖𝒗𝒆𝒎𝒆𝒏𝒕𝒔
+𝒅𝒖 𝒑𝒓𝒊𝒙.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="chapter">
+
+<div class="chapter-num">𝟎𝟑</div>
+
+<div>
+<h3>𝑺𝒕𝒓𝒖𝒄𝒕𝒖𝒓𝒆 𝒅𝒖 𝒎𝒂𝒓𝒄𝒉𝒆́</h3>
+
+<p>
+𝑻𝒆𝒏𝒅𝒂𝒏𝒄𝒆𝒔,
+𝒛𝒐𝒏𝒆𝒔
+𝒆𝒕 𝒄𝒐𝒏𝒇𝒊𝒓𝒎𝒂𝒕𝒊𝒐𝒏𝒔.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="chapter">
+
+<div class="chapter-num">𝟎𝟒</div>
+
+<div>
+<h3>𝑷𝒔𝒚𝒄𝒉𝒐𝒍𝒐𝒈𝒊𝒆</h3>
+
+<p>
+𝑫𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆,
+𝒑𝒂𝒕𝒊𝒆𝒏𝒄𝒆
+𝒆𝒕 𝒓𝒆́𝒈𝒖𝒍𝒂𝒓𝒊𝒕𝒆́.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="chapter">
+
+<div class="chapter-num">𝟎𝟓</div>
+
+<div>
+<h3>𝑮𝒆𝒔𝒕𝒊𝒐𝒏 𝒅𝒖 𝒓𝒊𝒔𝒒𝒖𝒆</h3>
+
+<p>
+𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆
+𝒍𝒆𝒔 𝒓𝒊𝒔𝒒𝒖𝒆𝒔
+𝒅𝒖 𝒎𝒂𝒓𝒄𝒉𝒆́.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="chapter">
+
+<div class="chapter-num">𝟎𝟔</div>
+
+<div>
+<h3>𝑱𝒐𝒖𝒓𝒏𝒂𝒍</h3>
+
+<p>
+𝑺𝒖𝒊𝒗𝒓𝒆
+𝒕𝒐𝒏
+𝒂𝒑𝒑𝒓𝒆𝒏𝒕𝒊𝒔𝒔𝒂𝒈𝒆.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= QUIZ ================= -->
+
+<section id="quiz">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑸𝑼𝑰𝒁 𝑻𝑹𝑨𝑫𝑰𝑵𝑮</small>
+
+<h2>
+𝑻𝒆𝒔𝒕𝒆 𝒕𝒆𝒔 𝒄𝒐𝒏𝒏𝒂𝒊𝒔𝒔𝒂𝒏𝒄𝒆𝒔
+</h2>
+
+<p>
+𝑹𝒆́𝒑𝒐𝒏𝒅𝒔 𝒂𝒖𝒙
+𝒒𝒖𝒆𝒔𝒕𝒊𝒐𝒏𝒔
+𝒆𝒕 𝒗𝒐𝒊𝒔 𝒕𝒐𝒏 𝒔𝒄𝒐𝒓𝒆.
+</p>
+
+</div>
+
+
+<div class="quiz-box">
+
+<div class="quiz-progress">
+
+<span id="quizProgress"></span>
+
+</div>
+
+<div id="quizContent"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= COMMUNITY ================= -->
+
+<section id="communaute">
+
+<div class="container">
+
+<div class="community">
+
+<div class="about-logo">
+𝐿𝑂𝐿𝑂𝐷𝐽𝑌 🦅
+</div>
+
+<h2>
+𝑹𝒆𝒋𝒐𝒊𝒏𝒔 𝒍𝒂 𝒄𝒐𝒎𝒎𝒖𝒏𝒂𝒖𝒕𝒆́
+</h2>
+
+<p>
+𝑹𝒆𝒕𝒓𝒐𝒖𝒗𝒆
+𝑳𝑶𝑳𝑶𝑫𝑱𝒀 𝑨𝑪𝑨𝑫𝑬𝑴𝒀
+𝒔𝒖𝒓 𝑾𝒉𝒂𝒕𝒔𝑨𝒑𝒑.
+</p>
+
+<a
+href="https://wa.me/50932539509"
+target="_blank"
+rel="noopener"
+class="btn btn-primary">
+
+𝑶𝑼𝑽𝑹𝑰𝑹 𝑾𝑯𝑨𝑻𝑺𝑨𝑷𝑷
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= RISK ================= -->
+
+<section id="risques">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>
+𝑻𝑬𝑹𝑴𝑬𝑺 & 𝑹𝑰𝑺𝑸𝑼𝑬𝑺
+</small>
+
+<h2>
+⚠️ 𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒍𝒆 𝒓𝒊𝒔𝒒𝒖𝒆
+</h2>
+
+</div>
+
+
+<div class="warning">
+
+<h3>
+𝑨𝑽𝑬𝑹𝑻𝑰𝑺𝑺𝑬𝑴𝑬𝑵𝑻
+</h3>
+
+<p>
+𝑳𝑶𝑳𝑶𝑫𝑱𝒀 𝑨𝑪𝑨𝑫𝑬𝑴𝒀
+𝒇𝒐𝒖𝒓𝒏𝒊𝒕
+𝒅𝒖 𝒄𝒐𝒏𝒕𝒆𝒏𝒖
+𝒂̀ 𝒄𝒂𝒓𝒂𝒄𝒕𝒆̀𝒓𝒆
+𝒆́𝒅𝒖𝒄𝒂𝒕𝒊𝒇
+𝒆𝒕 𝒊𝒏𝒇𝒐𝒓𝒎𝒂𝒕𝒊𝒇.
+
+𝑳𝒆𝒔 𝒂𝒏𝒂𝒍𝒚𝒔𝒆𝒔
+𝒆𝒕 𝒔𝒊𝒈𝒏𝒂𝒖𝒙
+𝒏𝒆 𝒄𝒐𝒏𝒔𝒕𝒊𝒕𝒖𝒆𝒏𝒕
+𝒑𝒂𝒔 𝒖𝒏𝒆
+𝒈𝒂𝒓𝒂𝒏𝒕𝒊𝒆
+𝒅𝒆 𝒈𝒂𝒊𝒏𝒔.
+
+𝑳𝒆 𝒕𝒓𝒂𝒅𝒊𝒏𝒈
+𝒄𝒐𝒎𝒑𝒐𝒓𝒕𝒆
+𝒅𝒆𝒔 𝒓𝒊𝒔𝒒𝒖𝒆𝒔
+𝒅𝒆 𝒑𝒆𝒓𝒕𝒆.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="apropos">
+
+<div class="container">
+
+<div class="about">
+
+<div class="section-title">
+
+<small>À 𝑷𝑹𝑶𝑷𝑶𝑺</small>
+
+<h2>
+𝐿𝑂𝐿𝑂𝐷𝐽𝑌 𝐴𝐶𝐴𝐷𝐸𝑀𝑌 🦅
+</h2>
+
+</div>
+
+<p id="aboutText">
+𝑳𝑶𝑳𝑶𝑫𝑱𝒀 𝑨𝑪𝑨𝑫𝑬𝑴𝒀
+𝒆𝒔𝒕 𝒖𝒏𝒆 𝒑𝒍𝒂𝒕𝒆𝒇𝒐𝒓𝒎𝒆
+𝒅𝒆́𝒅𝒊𝒆́𝒆 𝒂̀
+𝒍'𝒂𝒑𝒑𝒓𝒆𝒏𝒕𝒊𝒔𝒔𝒂𝒈𝒆
+𝒅𝒖 𝒕𝒓𝒂𝒅𝒊𝒏𝒈,
+𝒂̀ 𝒍𝒂
+𝒄𝒐𝒎𝒑𝒓𝒆́𝒉𝒆𝒏𝒔𝒊𝒐𝒏
+𝒅𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔
+𝒆𝒕 𝒂𝒖
+𝒅𝒆́𝒗𝒆𝒍𝒐𝒑𝒑𝒆𝒎𝒆𝒏𝒕
+𝒅𝒆 𝒍𝒂
+𝒅𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+
+<small>𝑪𝑶𝑵𝑻𝑨𝑪𝑻</small>
+
+<h2>
+𝑹𝒆𝒔𝒕𝒐𝒏𝒔 𝒆𝒏 𝒄𝒐𝒏𝒕𝒂𝒄𝒕
+</h2>
+
+<p>
+𝑪𝒍𝒊𝒒𝒖𝒆 𝒔𝒖𝒓
+𝒖𝒏 𝒄𝒂𝒏𝒂𝒍
+𝒑𝒐𝒖𝒓
+𝒄𝒐𝒏𝒕𝒂𝒄𝒕𝒆𝒓
+𝑳𝑶𝑳𝑶𝑫𝑱𝒀.
+</p>
+
+</div>
+
+
+<div class="contact-box">
+
+<div class="contact-list">
+
+
+<a
+class="contact-item"
+href="https://wa.me/50932539509"
+target="_blank"
+rel="noopener">
+
+<div class="contact-icon">◉</div>
+
+<div>
+
+<small>𝑾𝑯𝑨𝑻𝑺𝑨𝑷𝑷</small>
+
+<strong>
++𝟓𝟎𝟗 𝟑𝟐𝟓𝟑 𝟗𝟓𝟎𝟗
+</strong>
+
+</div>
+
+</a>
+
+
+<a
+class="contact-item"
+href="tel:+50932539509">
+
+<div class="contact-icon">☎</div>
+
+<div>
+
+<small>𝑻𝑬́𝑳𝑬́𝑷𝑯𝑶𝑵𝑬</small>
+
+<strong>
++𝟓𝟎𝟗 𝟑𝟐𝟓𝟑 𝟗𝟓𝟎𝟗
+</strong>
+
+</div>
+
+</a>
+
+
+<a
+class="contact-item"
+href="mailto:lubinlowens59@gmail.com">
+
+<div class="contact-icon">✉</div>
+
+<div>
+
+<small>𝑬𝑴𝑨𝑰𝑳</small>
+
+<strong>
+lubinlowens59@gmail.com
+</strong>
+
+</div>
+
+</a>
+
+
+<a
+class="contact-item"
+href="https://www.instagram.com/zani_a07/"
+target="_blank"
+rel="noopener">
+
+<div class="contact-icon">◎</div>
+
+<div>
+
+<small>𝑰𝑵𝑺𝑻𝑨𝑮𝑹𝑨𝑴</small>
+
+<strong>
+@zani_a07
+</strong>
+
+</div>
+
+</a>
+
+
+<a
+class="contact-item"
+href="https://www.tiktok.com/@pentate7"
+target="_blank"
+rel="noopener">
+
+<div class="contact-icon">♪</div>
+
+<div>
+
+<small>𝑻𝑰𝑲𝑻𝑶𝑲</small>
+
+<strong>
+@pentate7
+</strong>
+
+</div>
+
+</a>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<!-- ================= DYNAMIC PAGE CONTAINER ================= -->
+
+<div
+id="dynamicPage"
+style="display:none;">
+
+<section>
+
+<div class="container dynamic-page">
+
+<div class="dynamic-page-box">
+
+<div
+id="dynamicPageIcon"
+class="dynamic-page-icon">
+📄
+</div>
+
+<h1 id="dynamicPageTitle">
+Page
+</h1>
+
+<p
+id="dynamicPageDescription"
+class="dynamic-page-description">
+</p>
+
+<div
+id="dynamicPageContent"
+class="dynamic-page-content">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-content">
+
+<div>
+
+<div class="footer-logo">
+
+𝐿𝑂𝐿𝑂𝐷𝐽𝑌
+<span>
+𝐴𝐶𝐴𝐷𝐸𝑀𝑌 🦅
+</span>
+
+</div>
+
+<div class="footer-text">
+
+𝑴𝒂𝒊̂𝒕𝒓𝒊𝒔𝒆 𝒍𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔.
+𝑨𝒇𝒇𝒖̂𝒕𝒆 𝒕𝒂 𝒔𝒕𝒓𝒂𝒕𝒆́𝒈𝒊𝒆.
+
+</div>
+
+</div>
+
+
+<div
+class="footer-links"
+id="footerLinks">
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 𝟐𝟎𝟐𝟔 ⚡ •
+𝑷𝑶𝑾𝑬𝑹𝑬𝑫 𝑩𝒀
+𝐿𝑂𝐿𝑂𝐷𝐽𝑌 🦅
+
+</div>
+
+</footer>
+
+
+<!-- ================= ADMIN BUTTON ================= -->
+
+<button
+class="admin-button"
+onclick="openAdmin()"
+title="Administration">
+
+⚙️
+
+</button>
+
+
+<!-- ================= ADMIN PANEL ================= -->
+
+<div
+class="admin-panel"
+id="adminPanel"
+onclick="closeAdminOutside(event)">
+
+<div class="admin">
+
+<h2>
+🔐 𝑨𝑫𝑴𝑰𝑵 𝑳𝑶𝑳𝑶𝑫𝑱𝒀
+</h2>
+
+<p class="admin-sub">
+𝑮𝒆́𝒓𝒆 𝒍𝒆 𝒔𝒊𝒕𝒆,
+𝒍𝒆𝒔 𝒊𝒏𝒇𝒐𝒓𝒎𝒂𝒕𝒊𝒐𝒏𝒔
+𝒆𝒕 𝒍𝒆𝒔 𝒑𝒂𝒈𝒆𝒔.
+</p>
+
+
+<!-- ================= LOGIN ================= -->
+
+<div id="adminLogin">
+
+<label>
+𝑴𝒐𝒕 𝒅𝒆 𝒑𝒂𝒔𝒔𝒆
+</label>
+
+<input
+type="password"
+id="adminPassword"
+placeholder="Mot de passe">
+
+<div class="admin-actions">
+
+<button
+class="btn btn-secondary"
+onclick="closeAdmin()">
+
+𝑭𝑬𝑹𝑴𝑬𝑹
+
+</button>
+
+<button
+class="btn btn-primary"
+onclick="loginAdmin()">
+
+𝑺𝑬 𝑪𝑶𝑵𝑵𝑬𝑪𝑻𝑬𝑹
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= ADMIN EDITOR ================= -->
+
+<div
+id="adminEditor"
+style="display:none;">
+
+
+<h3>
+⚙️ 𝑰𝑵𝑭𝑶𝑹𝑴𝑨𝑻𝑰𝑶𝑵𝑺 𝑫𝑼 𝑺𝑰𝑻𝑬
+</h3>
+
+
+<label>
+𝑺𝑳𝑶𝑮𝑨𝑵
+</label>
+
+<input
+id="editSlogan"
+type="text">
+
+
+<label>
+𝑻𝑬𝑿𝑻𝑬 𝑨̀ 𝑷𝑹𝑶𝑷𝑶𝑺
+</label>
+
+<textarea
+id="editAbout">
+</textarea>
+
+
+<label>
+𝑰𝑵𝑺𝑻𝑨𝑮𝑹𝑨𝑴
+</label>
+
+<input
+id="editInstagram"
+type="text">
+
+
+<label>
+𝑻𝑰𝑲𝑻𝑶𝑲
+</label>
+
+<input
+id="editTiktok"
+type="text">
+
+
+<label>
+𝑮𝑹𝑶𝑼𝑷𝑬 𝑾𝑯𝑨𝑻𝑺𝑨𝑷𝑷
+</label>
+
+<input
+id="editWhatsapp"
+type="text">
+
+
+<div class="admin-actions">
+
+<button
+class="btn btn-primary"
+onclick="saveChanges()">
+
+💾 𝑺𝑨𝑼𝑽𝑬𝑮𝑨𝑹𝑫𝑬𝑹
+
+</button>
+
+</div>
+
+
+<!-- ================= PAGE MANAGEMENT ================= -->
+
+<div
+style="
+margin-top:35px;
+padding-top:25px;
+border-top:1px solid rgba(255,255,255,.08);
+">
+
+
+<h3>
+📄 𝑮𝑬𝑺𝑻𝑰𝑶𝑵 𝑫𝑬𝑺 𝑷𝑨𝑮𝑬𝑺
+</h3>
+
+<p class="admin-sub">
+
+𝑨𝒋𝒐𝒖𝒕𝒆,
+𝒎𝒐𝒅𝒊𝒇𝒊𝒆
+𝒐𝒖
+𝒔𝒖𝒑𝒑𝒓𝒊𝒎𝒆
+𝒅𝒆𝒔 𝒑𝒂𝒈𝒆𝒔.
+
+</p>
+
+
+<button
+class="btn btn-primary"
+onclick="showAddPageForm()">
+
+➕ 𝑨𝑱𝑶𝑼𝑻𝑬𝑹 𝑼𝑵𝑬 𝑷𝑨𝑮𝑬
+
+</button>
+
+
+<!-- ================= PAGE FORM ================= -->
+
+<div
+id="pageForm"
+style="
+display:none;
+margin-top:20px;
+padding:20px;
+background:#050912;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+">
+
+
+<h3 id="pageFormTitle">
+
+➕ 𝑵𝑶𝑼𝑽𝑬𝑳𝑳𝑬 𝑷𝑨𝑮𝑬
+
+</h3>
+
+
+<label>
+𝑵𝑶𝑴 𝑫𝑬 𝑳𝑨 𝑷𝑨𝑮𝑬
+</label>
+
+<input
+id="pageName"
+type="text"
+placeholder="Ex : Nos Services">
+
+
+<label>
+𝑻𝑰𝑻𝑹𝑬
+</label>
+
+<input
+id="pageTitle"
+type="text"
+placeholder="Ex : Nos Services LOLODJY">
+
+
+<label>
+𝑫𝑬𝑺𝑪𝑹𝑰𝑷𝑻𝑰𝑶𝑵
+</label>
+
+<textarea
+id="pageDescription"
+placeholder="Description de la page">
+</textarea>
+
+
+<label>
+𝑪𝑶𝑵𝑻𝑬𝑵𝑼
+</label>
+
+<textarea
+id="pageContent"
+style="min-height:180px;"
+placeholder="Écris le contenu de ta page ici...">
+</textarea>
+
+
+<label>
+𝑰𝑪𝑶̂𝑵𝑬
+</label>
+
+<input
+id="pageIcon"
+type="text"
+placeholder="📄">
+
+
+<div class="admin-actions">
+
+<button
+class="btn btn-secondary"
+onclick="cancelPageForm()">
+
+𝑨𝑵𝑵𝑼𝑳𝑬𝑹
+
+</button>
+
+<button
+class="btn btn-primary"
+onclick="savePage()">
+
+💾 𝑬𝑵𝑹𝑬𝑮𝑰𝑺𝑻𝑹𝑬𝑹 𝑳𝑨 𝑷𝑨𝑮𝑬
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= PAGE LIST ================= -->
+
+<div
+id="pagesList"
+style="margin-top:20px;">
+</div>
+
+</div>
+
+
+<div class="admin-actions">
+
+<button
+class="btn btn-secondary"
+onclick="closeAdmin()">
+
+𝑭𝑬𝑹𝑴𝑬𝑹
+
+</button>
+
+</div>
+
+
+<p class="admin-note">
+
+⚠️ Cette version utilise le stockage local du navigateur.
+Pour une administration réellement accessible depuis plusieurs appareils,
+il faudra connecter une base de données et un serveur.
+
+</p>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList.toggle("active");
+
+}
+
+
+function closeMobileMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList.remove("active");
+
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+const questions = [
+
+{
+    question:
+    "𝑸𝒖𝒆 𝒓𝒆𝒑𝒓𝒆́𝒔𝒆𝒏𝒕𝒆 𝒖𝒏 𝒔𝒕𝒐𝒑-𝒍𝒐𝒔𝒔 ?",
+
+    answers:[
+        "𝑼𝒏 𝒐𝒖𝒕𝒊𝒍 𝒑𝒐𝒖𝒓 𝒍𝒊𝒎𝒊𝒕𝒆𝒓 𝒖𝒏𝒆 𝒑𝒆𝒓𝒕𝒆",
+        "𝑼𝒏 𝒈𝒂𝒊𝒏 𝒈𝒂𝒓𝒂𝒏𝒕𝒊",
+        "𝑼𝒏 𝒊𝒏𝒅𝒊𝒄𝒂𝒕𝒆𝒖𝒓",
+        "𝑼𝒏 𝒄𝒐𝒎𝒑𝒕𝒆"
+    ],
+
+    correct:0
+},
+
+{
+    question:
+    "𝑷𝒐𝒖𝒓𝒒𝒖𝒐𝒊 𝒍𝒂 𝒈𝒆𝒔𝒕𝒊𝒐𝒏 𝒅𝒖 𝒓𝒊𝒔𝒒𝒖𝒆 𝒆𝒔𝒕-𝒆𝒍𝒍𝒆 𝒊𝒎𝒑𝒐𝒓𝒕𝒂𝒏𝒕𝒆 ?",
+
+    answers:[
+        "𝑷𝒐𝒖𝒓 𝒍𝒊𝒎𝒊𝒕𝒆𝒓 𝒍'𝒊𝒎𝒑𝒂𝒄𝒕 𝒅𝒆𝒔 𝒎𝒂𝒖𝒗𝒂𝒊𝒔𝒆𝒔 𝒅𝒆́𝒄𝒊𝒔𝒊𝒐𝒏𝒔",
+        "𝑷𝒐𝒖𝒓 𝒈𝒂𝒓𝒂𝒏𝒕𝒊𝒓 𝒅𝒆𝒔 𝒈𝒂𝒊𝒏𝒔",
+        "𝑷𝒐𝒖𝒓 𝒔𝒖𝒑𝒑𝒓𝒊𝒎𝒆𝒓 𝒍𝒆 𝒓𝒊𝒔𝒒𝒖𝒆",
+        "𝑷𝒐𝒖𝒓 𝒑𝒓𝒆́𝒅𝒊𝒓𝒆 𝒍'𝒂𝒗𝒆𝒏𝒊𝒓"
+    ],
+
+    correct:0
+},
+
+{
+    question:
+    "𝑼𝒏 𝒔𝒊𝒈𝒏𝒂𝒍 𝒅𝒆 𝒕𝒓𝒂𝒅𝒊𝒏𝒈 𝒈𝒂𝒓𝒂𝒏𝒕𝒊𝒕-𝒊𝒍 𝒖𝒏 𝒈𝒂𝒊𝒏 ?",
+
+    answers:[
+        "𝑵𝒐𝒏",
+        "𝑶𝒖𝒊",
+        "𝑻𝒐𝒖𝒋𝒐𝒖𝒓𝒔",
+        "𝑼𝒏𝒊𝒒𝒖𝒆𝒎𝒆𝒏𝒕 𝒍𝒆 𝒎𝒂𝒕𝒊𝒏"
+    ],
+
+    correct:0
+},
+
+{
+    question:
+    "𝑸𝒖𝒆𝒍 𝒆𝒔𝒕 𝒍'𝒖𝒏 𝒅𝒆𝒔 𝒑𝒊𝒍𝒊𝒆𝒓𝒔 𝒅𝒆 𝑳𝑶𝑳𝑶𝑫𝑱𝒀 𝑨𝑪𝑨𝑫𝑬𝑴𝒀 ?",
+
+    answers:[
+        "𝑳𝒂 𝒅𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆",
+        "𝑳𝒂 𝒈𝒂𝒓𝒂𝒏𝒕𝒊𝒆 𝒅𝒆 𝒈𝒂𝒊𝒏",
+        "𝑳𝒆 𝒓𝒊𝒔𝒒𝒖𝒆 𝒛𝒆́𝒓𝒐",
+        "𝑳𝒆𝒔 𝒈𝒂𝒊𝒏𝒔 𝒓𝒂𝒑𝒊𝒅𝒆𝒔"
+    ],
+
+    correct:0
+}
+
+];
+
+
+let currentQuestion = 0;
+let score = 0;
+
+
+function showQuestion(){
+
+    const content =
+    document.getElementById("quizContent");
+
+    const q =
+    questions[currentQuestion];
+
+
+    document
+    .getElementById("quizProgress")
+    .style.width =
+    ((currentQuestion / questions.length) * 100) + "%";
+
+
+    content.innerHTML = `
+
+        <div class="quiz-question">
+            ${currentQuestion + 1}/${questions.length}
+            — ${q.question}
+        </div>
+
+        <div class="answers">
+
+            ${q.answers.map(function(answer,index){
+
+                return `
+
+                    <button
+                    class="answer"
+                    onclick="selectAnswer(${index},this)">
+
+                    ${answer}
+
+                    </button>
+
+                `;
+
+            }).join("")}
+
+        </div>
+
+    `;
+
+}
+
+
+function selectAnswer(index,button){
+
+    const q =
+    questions[currentQuestion];
+
+    const buttons =
+    document.querySelectorAll(".answer");
+
+
+    buttons.forEach(function(btn){
+
+        btn.disabled = true;
+
+    });
+
+
+    if(index === q.correct){
+
+        button.classList.add("correct");
+
+        score++;
+
+    }else{
+
+        button.classList.add("wrong");
+
+        buttons[q.correct]
+        .classList.add("correct");
+
+    }
+
+
+    setTimeout(function(){
+
+        currentQuestion++;
+
+
+        if(currentQuestion < questions.length){
+
+            showQuestion();
+
+        }else{
+
+            document
+            .getElementById("quizProgress")
+            .style.width = "100%";
+
+
+            document
+            .getElementById("quizContent")
+            .innerHTML = `
+
+                <div class="quiz-result">
+
+                    <h2>
+                        🦅 𝑸𝒖𝒊𝒛 𝒕𝒆𝒓𝒎𝒊𝒏𝒆́
+                    </h2>
+
+                    <p
+                    style="
+                    color:#858fa3;
+                    margin:15px 0 25px;">
+
+                        𝑻𝒐𝒏 𝒔𝒄𝒐𝒓𝒆 :
+
+                        <strong
+                        style="color:#6ca2ff">
+
+                        ${score}/${questions.length}
+
+                        </strong>
+
+                    </p>
+
+                    <button
+                    class="btn btn-primary"
+                    onclick="restartQuiz()">
+
+                        𝑹𝑬𝑪𝑶𝑴𝑴𝑬𝑵𝑪𝑬𝑹
+
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+
+    },700);
+
+}
+
+
+function restartQuiz(){
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    showQuestion();
+
+}
+
+
+showQuestion();
+
+
+/* =========================================================
+   SITE DATA
+========================================================= */
+
+let siteData = JSON.parse(
+    localStorage.getItem("lolodjyAcademy")
+) || {
+
+    slogan:
+    "𝑴𝒂𝒊̂𝒕𝒓𝒊𝒔𝒆 𝒍𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔. 𝑨𝒇𝒇𝒖̂𝒕𝒆 𝒕𝒂 𝒔𝒕𝒓𝒂𝒕𝒆́𝒈𝒊𝒆. 𝑪𝒐𝒏𝒔𝒕𝒓𝒖𝒊𝒔 𝒕𝒐𝒏 𝒂𝒗𝒆𝒏𝒊𝒓.",
+
+    about:
+    "𝑳𝑶𝑳𝑶𝑫𝑱𝒀 𝑨𝑪𝑨𝑫𝑬𝑴𝒀 𝒆𝒔𝒕 𝒖𝒏𝒆 𝒑𝒍𝒂𝒕𝒆𝒇𝒐𝒓𝒎𝒆 𝒅𝒆́𝒅𝒊𝒆́𝒆 𝒂̀ 𝒍'𝒂𝒑𝒑𝒓𝒆𝒏𝒕𝒊𝒔𝒔𝒂𝒈𝒆 𝒅𝒖 𝒕𝒓𝒂𝒅𝒊𝒏𝒈, 𝒂̀ 𝒍𝒂 𝒄𝒐𝒎𝒑𝒓𝒆́𝒉𝒆𝒏𝒔𝒊𝒐𝒏 𝒅𝒆𝒔 𝒎𝒂𝒓𝒄𝒉𝒆́𝒔 𝒆𝒕 𝒂𝒖 𝒅𝒆́𝒗𝒆𝒍𝒐𝒑𝒑𝒆𝒎𝒆𝒏𝒕 𝒅𝒆 𝒍𝒂 𝒅𝒊𝒔𝒄𝒊𝒑𝒍𝒊𝒏𝒆.",
+
+    instagram:
+    "https://www.instagram.com/zani_a07/",
+
+    tiktok:
+    "https://www.tiktok.com/@pentate7",
+
+    whatsapp:
+    "https://wa.me/50932539509"
+
+};
+
+
+/* =========================================================
+   PAGES
+========================================================= */
+
+let pages = JSON.parse(
+    localStorage.getItem("lolodjyPages")
+) || [
+
+    {
+        id:"accueil",
+        name:"Accueil",
+        title:"𝐿𝑂𝐿𝑂𝐷𝐽𝑌 𝐴𝐶𝐴𝐷𝐸𝑀𝑌 🦅",
+        description:"Page principale de LOLODJY ACADEMY",
+        content:"",
+        icon:"🏠",
+        system:true
+    },
+
+    {
+        id:"signals",
+        name:"Signals",
+        title:"𝑺𝒊𝒈𝒏𝒂𝒖𝒙 & 𝑨𝒏𝒂𝒍𝒚𝒔𝒆𝒔",
+        description:"Signals et analyses éducatives",
+        content:"",
+        icon:"📡",
+        system:true
+    },
+
+    {
+        id:"trading",
+        name:"Trading",
+        title:"𝑪𝒐𝒎𝒑𝒓𝒆𝒏𝒅𝒓𝒆 𝒂𝒗𝒂𝒏𝒕 𝒅'𝒂𝒈𝒊𝒓",
+        description:"Apprentissage du trading",
+        content:"",
+        icon:"📈",
+        system:true
+    },
+
+    {
+        id:"formation",
+        name:"Formation",
+        title:"𝑨𝒑𝒑𝒓𝒆𝒏𝒅𝒔 𝒆́𝒕𝒂𝒑𝒆 𝒑𝒂𝒓 𝒆́𝒕𝒂𝒑𝒆",
+        description:"Formation LOLODJY ACADEMY",
+        content:"",
+        icon:"📚",
+        system:true
+    },
+
+    {
+        id:"quiz",
+        name:"Quiz",
+        title:"𝑻𝒆𝒔𝒕𝒆 𝒕𝒆𝒔 𝒄𝒐𝒏𝒏𝒂𝒊𝒔𝒔𝒂𝒏𝒄𝒆𝒔",
+        description:"Quiz trading",
+        content:"",
+        icon:"🧠",
+        system:true
+    },
+
+    {
+        id:"apropos",
+        name:"À propos",
+        title:"𝐿𝑂𝐿𝑂𝐷𝐽𝑌 𝐴𝐶𝐴𝐷𝐸𝑀𝑌",
+        description:"À propos de LOLODJY",
+        content:"",
+        icon:"ℹ️",
+        system:true
+    },
+
+    {
+        id:"contact",
+        name:"Contact",
+        title:"𝑹𝒆𝒔𝒕𝒐𝒏𝒔 𝒆𝒏 𝒄𝒐𝒏𝒕𝒂𝒄𝒕",
+        description:"Contact LOLODJY",
+        content:"",
+        icon:"📞",
+        system:true
+    }
+
+];
+
+
+let editingPageId = null;
+
+
+/* =========================================================
+   RENDER NAVIGATION
+========================================================= */
+
+function renderNavigation(){
+
+    const nav =
+    document.getElementById("navLinks");
+
+    const footer =
+    document.getElementById("footerLinks");
+
+
+    nav.innerHTML = "";
+
+    footer.innerHTML = "";
+
+
+    pages.forEach(function(page){
+
+        const navItem =
+        document.createElement("li");
+
+
+        const navLink =
+        document.createElement("a");
+
+
+        navLink.href =
+        "#" + page.id;
+
+
+        navLink.textContent =
+        page.name;
+
+
+        navLink.onclick =
+        function(){
+
+            closeMobileMenu();
+
+        };
+
+
+        navItem.appendChild(navLink);
+
+        nav.appendChild(navItem);
+
+
+        const footerLink =
+        document.createElement("a");
+
+
+        footerLink.href =
+        "#" + page.id;
+
+
+        footerLink.textContent =
+        page.name;
+
+
+        footer.appendChild(footerLink);
+
+    });
+
+
+    const contact =
+    pages.find(function(page){
+
+        return page.id === "contact";
+
+    });
+
+
+    if(contact){
+
+        const links =
+        nav.querySelectorAll("a");
+
+
+        links.forEach(function(link){
+
+            if(link.textContent === contact.name){
+
+                link.classList.add("nav-btn");
+
+            }
+
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   OPEN PAGE
+========================================================= */
+
+function openPage(id){
+
+    const page =
+    pages.find(function(p){
+
+        return p.id === id;
+
+    });
+
+
+    if(!page){
+
+        showHome();
+
+        return;
+
+    }
+
+
+    if(page.system){
+
+        showSystemSection(page.id);
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("homeContent")
+    .style.display = "none";
+
+
+    document
+    .getElementById("dynamicPage")
+    .style.display = "block";
+
+
+    document
+    .getElementById("dynamicPageIcon")
+    .textContent =
+    page.icon || "📄";
+
+
+    document
+    .getElementById("dynamicPageTitle")
+    .textContent =
+    page.title;
+
+
+    document
+    .getElementById("dynamicPageDescription")
+    .textContent =
+    page.description;
+
+
+    document
+    .getElementById("dynamicPageContent")
+    .textContent =
+    page.content;
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   SYSTEM PAGE
+========================================================= */
+
+function showSystemSection(id){
+
+    document
+    .getElementById("homeContent")
+    .style.display = "block";
+
+
+    document
+    .getElementById("dynamicPage")
+    .style.display = "none";
+
+
+    const element =
+    document.getElementById(id);
+
+
+    if(element){
+
+        setTimeout(function(){
+
+            element.scrollIntoView({
+                behavior:"smooth"
+            });
+
+        },50);
+
+    }
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function showHome(){
+
+    document
+    .getElementById("homeContent")
+    .style.display = "block";
+
+
+    document
+    .getElementById("dynamicPage")
+    .style.display = "none";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   HASH ROUTER
+========================================================= */
+
+function handleHash(){
+
+    const id =
+    location.hash.substring(1);
+
+
+    if(!id || id === "accueil"){
+
+        showHome();
+
+        return;
+
+    }
+
+
+    openPage(id);
+
+}
+
+
+window.addEventListener(
+    "hashchange",
+    handleHash
+);
+
+
+window.addEventListener(
+    "load",
+    handleHash
+);
+
+
+/* =========================================================
+   ADMIN OPEN
+========================================================= */
+
+function openAdmin(){
+
+    document
+    .getElementById("adminPanel")
+    .classList.add("active");
+
+}
+
+
+/* =========================================================
+   ADMIN CLOSE
+========================================================= */
+
+function closeAdmin(){
+
+    document
+    .getElementById("adminPanel")
+    .classList.remove("active");
+
+}
+
+
+function closeAdminOutside(event){
+
+    if(event.target.id === "adminPanel"){
+
+        closeAdmin();
+
+    }
+
+}
+
+
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
+
+function loginAdmin(){
+
+    const password =
+    document
+    .getElementById("adminPassword")
+    .value;
+
+
+    /*
+       MOT DE PASSE DE DÉMONSTRATION.
+
+       À remplacer par une vraie authentification
+       côté serveur avant la mise en ligne réelle.
+    */
+
+    if(password !== "LOLODJY2026"){
+
+        alert("❌ Mot de passe incorrect.");
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("adminLogin")
+    .style.display = "none";
+
+
+    document
+    .getElementById("adminEditor")
+    .style.display = "block";
+
+
+    document
+    .getElementById("editSlogan")
+    .value =
+    siteData.slogan;
+
+
+    document
+    .getElementById("editAbout")
+    .value =
+    siteData.about;
+
+
+    document
+    .getElementById("editInstagram")
+    .value =
+    siteData.instagram;
+
+
+    document
+    .getElementById("editTiktok")
+    .value =
+    siteData.tiktok;
+
+
+    document
+    .getElementById("editWhatsapp")
+    .value =
+    siteData.whatsapp;
+
+
+    renderPages();
+
+}
+
+
+/* =========================================================
+   SAVE SITE
+========================================================= */
+
+function saveChanges(){
+
+    siteData.slogan =
+    document
+    .getElementById("editSlogan")
+    .value;
+
+
+    siteData.about =
+    document
+    .getElementById("editAbout")
+    .value;
+
+
+    siteData.instagram =
+    document
+    .getElementById("editInstagram")
+    .value;
+
+
+    siteData.tiktok =
+    document
+    .getElementById("editTiktok")
+    .value;
+
+
+    siteData.whatsapp =
+    document
+    .getElementById("editWhatsapp")
+    .value;
+
+
+    localStorage.setItem(
+        "lolodjyAcademy",
+        JSON.stringify(siteData)
+    );
+
+
+    document
+    .getElementById("heroDescription")
+    .textContent =
+    siteData.slogan;
+
+
+    document
+    .getElementById("aboutText")
+    .textContent =
+    siteData.about;
+
+
+    alert(
+        "✅ Modifications enregistrées."
+    );
+
+}
+
+
+/* =========================================================
+   SHOW ADD PAGE FORM
+========================================================= */
+
+function showAddPageForm(){
+
+    editingPageId = null;
+
+
+    document
+    .getElementById("pageForm")
+    .style.display = "block";
+
+
+    document
+    .getElementById("pageFormTitle")
+    .textContent =
+    "➕ 𝑵𝑶𝑼𝑽𝑬𝑳𝑳𝑬 𝑷𝑨𝑮𝑬";
+
+
+    document
+    .getElementById("pageName")
+    .value = "";
+
+
+    document
+    .getElementById("pageTitle")
+    .value = "";
+
+
+    document
+    .getElementById("pageDescription")
+    .value = "";
+
+
+    document
+    .getElementById("pageContent")
+    .value = "";
+
+
+    document
+    .getElementById("pageIcon")
+    .value = "📄";
+
+
+    document
+    .getElementById("pageName")
+    .focus();
+
+}
+
+
+/* =========================================================
+   CANCEL PAGE FORM
+========================================================= */
+
+function cancelPageForm(){
+
+    editingPageId = null;
+
+
+    document
+    .getElementById("pageForm")
+    .style.display = "none";
+
+}
+
+
+/* =========================================================
+   SAVE PAGE
+========================================================= */
+
+function savePage(){
+
+    const name =
+    document
+    .getElementById("pageName")
+    .value
+    .trim();
+
+
+    const title =
+    document
+    .getElementById("pageTitle")
+    .value
+    .trim();
+
+
+    const description =
+    document
+    .getElementById("pageDescription")
+    .value
+    .trim();
+
+
+    const content =
+    document
+    .getElementById("pageContent")
+    .value
+    .trim();
+
+
+    const icon =
+    document
+    .getElementById("pageIcon")
+    .value
+    .trim() || "📄";
+
+
+    if(!name){
+
+        alert(
+            "⚠️ Donne un nom à la page."
+        );
+
+        return;
+
+    }
+
+
+    if(!title){
+
+        alert(
+            "⚠️ Ajoute un titre."
+        );
+
+        return;
+
+    }
+
+
+    /* ================= MODIFICATION ================= */
+
+    if(editingPageId){
+
+        const page =
+        pages.find(function(p){
+
+            return p.id === editingPageId;
+
+        });
+
+
+        if(page){
+
+            page.name =
+            name;
+
+            page.title =
+            title;
+
+            page.description =
+            description;
+
+            page.content =
+            content;
+
+            page.icon =
+            icon;
+
+        }
+
+
+        alert(
+            "✅ Page modifiée."
+        );
+
+
+    }else{
+
+
+        /* ================= NOUVELLE PAGE ================= */
+
+        let id =
+        name
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(
+            /[\u0300-\u036f]/g,
+            ""
+        )
+        .replace(
+            /[^a-z0-9]+/g,
+            "-"
+        )
+        .replace(
+            /^-|-$/g,
+            ""
+        );
+
+
+        if(!id){
+
+            id = "page";
+
+        }
+
+
+        const originalId =
+        id;
+
+        let counter = 2;
+
+
+        while(
+            pages.some(function(p){
+
+                return p.id === id;
+
+            })
+        ){
+
+            id =
+            originalId +
+            "-" +
+            counter;
+
+            counter++;
+
+        }
+
+
+        pages.push({
+
+            id:id,
+
+            name:name,
+
+            title:title,
+
+            description:description,
+
+            content:content,
+
+            icon:icon,
+
+            system:false
+
+        });
+
+
+        alert(
+            "✅ Nouvelle page créée."
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "lolodjyPages",
+        JSON.stringify(pages)
+    );
+
+
+    renderNavigation();
+
+    renderPages();
+
+    cancelPageForm();
+
+}
+
+
+/* =========================================================
+   EDIT PAGE
+========================================================= */
+
+function editPage(id){
+
+    const page =
+    pages.find(function(p){
+
+        return p.id === id;
+
+    });
+
+
+    if(!page){
+
+        return;
+
+    }
+
+
+    editingPageId =
+    id;
+
+
+    document
+    .getElementById("pageForm")
+    .style.display =
+    "block";
+
+
+    document
+    .getElementById("pageFormTitle")
+    .textContent =
+    "✏️ 𝑴𝑶𝑫𝑰𝑭𝑰𝑬𝑹 𝑳𝑨 𝑷𝑨𝑮𝑬";
+
+
+    document
+    .getElementById("pageName")
+    .value =
+    page.name;
+
+
+    document
+    .getElementById("pageTitle")
+    .value =
+    page.title;
+
+
+    document
+    .getElementById("pageDescription")
+    .value =
+    page.description;
+
+
+    document
+    .getElementById("pageContent")
+    .value =
+    page.content;
+
+
+    document
+    .getElementById("pageIcon")
+    .value =
+    page.icon;
+
+
+    document
+    .getElementById("pageName")
+    .focus();
+
+}
+
+
+/* =========================================================
+   DELETE PAGE
+========================================================= */
+
+function deletePage(id){
+
+    const page =
+    pages.find(function(p){
+
+        return p.id === id;
+
+    });
+
+
+    if(!page){
+
+        return;
+
+    }
+
+
+    if(page.system){
+
+        alert(
+            "⚠️ Cette page principale ne peut pas être supprimée."
+        );
+
+        return;
+
+    }
+
+
+    const confirmation =
+    confirm(
+        "Voulez-vous vraiment supprimer la page « "
+        + page.name
+        + " » ?"
+    );
+
+
+    if(!confirmation){
+
+        return;
+
+    }
+
+
+    pages =
+    pages.filter(function(p){
+
+        return p.id !== id;
+
+    });
+
+
+    localStorage.setItem(
+        "lolodjyPages",
+        JSON.stringify(pages)
+    );
+
+
+    renderNavigation();
+
+    renderPages();
+
+
+    if(location.hash === "#" + id){
+
+        location.hash =
+        "#accueil";
+
+    }
+
+
+    alert(
+        "🗑️ Page supprimée."
+    );
+
+}
+
+
+/* =========================================================
+   RENDER ADMIN PAGE LIST
+========================================================= */
+
+function renderPages(){
+
+    const container =
+    document
+    .getElementById("pagesList");
+
+
+    if(!container){
+
+        return;
+
+    }
+
+
+    if(pages.length === 0){
+
+        container.innerHTML = `
+
+            <div class="page-empty">
+
+                📄 Aucune page disponible.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+    pages.map(function(page){
+
+        const deleteButton =
+        page.system
+        ? ""
+        : `
+
+            <button
+            class="delete-page"
+            onclick="deletePage('${page.id}')">
+
+                🗑️ SUPPRIMER
+
+            </button>
+
+        `;
+
+
+        return `
+
+            <div class="page-admin-card">
+
+                <div class="page-admin-top">
+
+                    <div>
+
+                        <div class="page-admin-name">
+
+                            ${escapeHTML(page.icon || "📄")}
+
+                            ${escapeHTML(page.name)}
+
+                        </div>
+
+                        <div class="page-admin-url">
+
+                            #${escapeHTML(page.id)}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="page-admin-actions">
+
+                    <button
+                    onclick="editPage('${page.id}')">
+
+                        ✏️ MODIFIER
+
+                    </button>
+
+                    ${deleteButton}
+
+                </div>
+
+            </div>
+
+        `;
+
+    }).join("");
+
+}
+
+
+/* =========================================================
+   HTML SECURITY
+========================================================= */
+
+function escapeHTML(text){
+
+    return String(text)
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =========================================================
+   LOAD SAVED DATA
+========================================================= */
+
+function loadSiteData(){
+
+    document
+    .getElementById("heroDescription")
+    .textContent =
+    siteData.slogan;
+
+
+    document
+    .getElementById("aboutText")
+    .textContent =
+    siteData.about;
+
+}
+
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
+
+loadSiteData();
+
+renderNavigation();
+
+</script>
+
+
+</body>
+
+  </html>
